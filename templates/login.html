@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% block title %}Login{% endblock %} {% block content
+%}
+<div class="container-row">
+  <div id="user_list_div"></div>
+  <div class="container">
+    <form method="POST" class="container" action="/login">
+      <h1>User Login</h1>
+      {{ form.hidden_tag() }} {{ form.username.label }} {{ form.username() }} {{
+      form.password.label }} {{ form.password() }} {{ form.submit(class="btn
+      btn-primary") }} {% if form.errors %} {% for error in form.username.errors
+      %}
+
+      <span class="badge badge-danger">{{ error }}</span>
+      {% endfor %} {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock %}

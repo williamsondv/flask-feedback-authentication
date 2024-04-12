@@ -1,0 +1,37 @@
+{% extends 'base.html' %}{% block title %}User Information{% endblock %} {%
+block content %}
+<div class="container">
+  <div>
+    <h1><p>{{user.first_name}} {{user.last_name}}</p></h1>
+    <ul class="container">
+      <li><span>Username = </span> <span>{{user.username}}</span></li>
+      <li>
+      </span>First Name = </span>
+        <span>{{user.first_name}}</span>
+      </li>
+      <li><span>Last Name = </span> <span>{{user.last_name}}</span></li>
+      <li><span>Email Address = </span> <span>{{user.email}}</span></li>
+    </ul>
+    <form>
+      <input type="submit" value="Logout" class="btn btn-primary" formaction="/logout">
+      <input type="submit" value="Add Feedback" class="btn btn-secondary" formaction="/users/{{user.username}}/feedback/add">
+      <input type="submit" value="Delete User" class="btn btn-danger" formaction="/users/{{user.username}}/delete">
+      
+    </form>
+  </div>
+  <div>
+    {% if user.feedback %}
+    <h2>User Feedback</h2>
+    <ul>
+    {% for feedback in user.feedback %}
+      <li><p class="h5">{{ feedback.title }}</p><p>{{ feedback.content }}</p></li>
+      <form method="POST">
+        <input type="submit" value="Edit" class="btn btn-primary" formaction="/feedback/{{ feedback.id }}/update">
+        <input type="submit" value="Delete" class="btn btn-danger" formaction="/feedback/{{ feedback.id }}/delete">
+      </form>
+    {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+.container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 26%;
+}
+
+input[type="submit"] {
+  width: 8rem;
+  margin-top: 0.7rem;
+}
+
+form {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+span {
+  width: 25rem;
+  margin-top: 0.7rem;
+  height: 1.5rem;
+  text-align: center;
+}
+
+ul {
+  margin-top: 1rem;
+}
+
+button {
+  width: 8rem;
+}
+
+a p {
+  width: 8rem;
+  margin-top: 1.7rem;
+}
